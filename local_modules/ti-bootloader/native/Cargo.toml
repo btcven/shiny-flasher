@@ -1,0 +1,18 @@
+[package]
+name = "ti-bootloader"
+version = "0.1.0"
+authors = ["locha mesh devs <contact@locha.io>"]
+license = "Apache-2.0"
+build = "build.rs"
+edition = "2018"
+exclude = ["artifacts.json", "index.node"]
+
+[lib]
+name = "ti_bootloader"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+neon-build = "0.7.0"
+
+[dependencies]
+neon = "0.7.0"
