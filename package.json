@@ -9,14 +9,14 @@
     "postinstall": "npm run local"
   },
   "keywords": [],
-  "author": "",
+  "author": "Locha Mesh Developers",
   "license": "Apache-2.0",
   "devDependencies": {
-    "electron": "^11.2.0",
-    "electron-reloader": "^1.2.0"
+    "electron": "^11.2.1",
+    "electron-reloader": "^1.2.0",
+    "neon-cli": "^0.7.0"
   },
   "dependencies": {
-    "neon-cli": "^0.7.0",
     "ti-bootloader": "file:local_modules/ti-bootloader",
     "vue": "^2.6.12"
   }

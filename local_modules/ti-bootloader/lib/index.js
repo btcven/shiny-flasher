@@ -1,3 +1,3 @@
-var addon = require('../native');
+// var addon = require('../native');
 
-console.log(addon.hello());
+module.exports = { hello: require('../native').hello };
