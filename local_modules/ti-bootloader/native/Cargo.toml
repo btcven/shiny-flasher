@@ -12,7 +12,10 @@ name = "ti_bootloader"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-neon-build = "0.7.0"
+neon-build = "0.7"
 
 [dependencies]
-neon = "0.7.0"
+neon = "0.7"
+
+ti-sbl = { git = "https://github.com/btcven/ti-bootloader", branch = "main" }
+serial = "0.4"
