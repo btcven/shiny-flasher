@@ -18,6 +18,7 @@
     "neon-cli": "^0.7.0"
   },
   "dependencies": {
+    "element-ui": "^2.15.0",
     "ti-bootloader": "file:local_modules/ti-bootloader",
     "vue": "^2.6.12"
   }
