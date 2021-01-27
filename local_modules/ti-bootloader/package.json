@@ -13,6 +13,7 @@
     "neon-cli": "^0.7.0"
   },
   "scripts": {
-    "install": "electron-build-env neon build"
+    "install": "npm run build",
+    "build": "neon build"
   }
 }
