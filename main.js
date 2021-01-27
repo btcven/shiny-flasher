@@ -1,9 +1,8 @@
 const { app, BrowserWindow } = require('electron');
-const Native = require('ti-bootloader');
 
 try {
   require('electron-reloader')(module);
-} catch { }
+} catch (e){ console.log(e) }
 
 function createWindow() {
   const win = new BrowserWindow({

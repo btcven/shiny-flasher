@@ -4,22 +4,24 @@
   "description": "ToDo",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "local": "for m in `ls $(npm prefix)/local_modules`; do npm install $m; done",
-    "postinstall": "npm run local"
+    "build": "electron-build-env neon build ti-bootloader && ./node_modules/.bin/electron-rebuild",
+    "start": "electron . --disable-gpu",
+    "install": "yarn build"
   },
   "keywords": [],
   "author": "Locha Mesh Developers",
   "license": "Apache-2.0",
   "devDependencies": {
-    "electron": "^11.2.1",
     "electron-build-env": "^0.2.0",
+    "electron-rebuild": "^2.3.4",
     "electron-reloader": "^1.2.0",
     "neon-cli": "^0.7.0"
   },
   "dependencies": {
+    "electron": "^7.2.4",
     "element-ui": "^2.15.0",
     "ti-bootloader": "file:local_modules/ti-bootloader",
+    "usb": "^1.6.2",
     "vue": "^2.6.12"
   }
 }
