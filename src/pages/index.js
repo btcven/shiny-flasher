@@ -18,13 +18,11 @@ export default class App extends Component {
     this.getFile = this.getFile.bind(this)
   }
 
-
   setButtonHover(num) {
     this.setState({
       activeButton: num
     })
   }
-
 
   getFile() {
     const { dialog, remote } = require('electron'),
@@ -38,7 +36,7 @@ export default class App extends Component {
       defaultPath: "D:\\electron-app",
 
       // See place holder 3 in above image
-      buttonLabel: "Custom button",
+      buttonLabel: "select",
 
       // See place holder 4 in above image
       filters: [
@@ -60,6 +58,13 @@ export default class App extends Component {
       activeButton: this.state.step
     })
   }
+
+
+  alert(){
+    alert('no avaliable')
+  }
+
+
   render() {
     return (
       <MainWindow>
@@ -91,6 +96,7 @@ export default class App extends Component {
               id={2}
               onMouseLeave={this.onMouseLeave}
               setButtonHover={this.setButtonHover}
+              onPress={this.alert}
             >
               <Archive fontSize='small' />
               <Text>Flash from url </Text>
