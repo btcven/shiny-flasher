@@ -15,12 +15,42 @@ export default class App extends Component {
 
     this.setButtonHover = this.setButtonHover.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this)
+    this.getFile = this.getFile.bind(this)
   }
 
 
   setButtonHover(num) {
     this.setState({
       activeButton: num
+    })
+  }
+
+
+  getFile() {
+    const { dialog, remote } = require('electron'),
+      win = remote.getCurrentWindow();
+
+    const options = {
+      // See place holder 1 in above image
+      title: "Custom title bar",
+
+      // See place holder 2 in above image
+      defaultPath: "D:\\electron-app",
+
+      // See place holder 3 in above image
+      buttonLabel: "Custom button",
+
+      // See place holder 4 in above image
+      filters: [
+        { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+        { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+        { name: 'Custom File Type', extensions: ['as'] },
+        { name: 'All Files', extensions: ['*'] }
+      ],
+      properties: ['openFile', 'multiSelections']
+    }
+    remote.dialog.showOpenDialog(win, options, (file) => {
+      console.log(file);
     })
   }
 
@@ -39,7 +69,7 @@ export default class App extends Component {
               borderRadius: 100,
               marginRight: 10
             }} />
-            <text style={{ textAlign: 'center', fontSize: 25, color: '#e0e0e0' }}>Locha Mesh</text>
+            <span style={{ textAlign: 'center', fontSize: 25, color: '#e0e0e0' }}>Locha Mesh</span>
           </Title>
           <Icons />
         </Head>
@@ -51,6 +81,7 @@ export default class App extends Component {
               id={1}
               setButtonHover={this.setButtonHover}
               onMouseLeave={this.onMouseLeave}
+              onPress={this.getFile}
             >
               <Save fontSize='small' />
               <Text >Flash form file </Text>

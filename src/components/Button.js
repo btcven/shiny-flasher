@@ -7,12 +7,14 @@ const Button = ({
   setButtonHover,
   id,
   onMouseLeave,
-  disabled
+  disabled,
+  onPress
 }) => (
   <ButtonContainer active={active}
     disabled={disabled ? true : false}
-    onMouseEnter={() => setButtonHover(id)}
-    onMouseLeave={() => onMouseLeave()}
+    onMouseEnter={() => setButtonHover ? setButtonHover(id) : () => { }}
+    onMouseLeave={() => onMouseLeave ? onMouseLeave() : () => { }}
+    onClick={() => onPress ? onPress() : () => { }}
   >
     {children}
   </ButtonContainer>
@@ -21,9 +23,7 @@ const Button = ({
 const ButtonContainer = styled.div`
 background-color: ${props => {
     if (props.disabled === false) {
-
       return props.active ? '#039be5' : ''
-
     } else {
       return '#313233'
     }
@@ -43,6 +43,10 @@ flex-direction:row;
 font-size:13px;
 font-family:'Montserrat';
 margin-bottom: 10px;
+&:hover {
+  cursor:${props => props.disabled ? 'not-allowed' : 'pointer'}
+}
+
 `
 
 export default Button;
